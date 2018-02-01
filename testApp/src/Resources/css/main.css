@@ -1,0 +1,49 @@
+h1{
+	margin-left:40px;
+}
+
+.row{
+	margin: 40px;
+}
+
+.card-json{
+	padding:20px;
+	margin-right:15px;
+}
+
+/*.card-json{
+	padding:20px;
+	margin-right:15px;
+}*/
+
+.card-response{
+	width: 18rem; 
+	margin: auto;
+}
+
+.clearfix{
+	margin-top: 100px;
+}
+
+.custom-file{
+	margin-bottom:-1px;
+}
+
+.custom-file-name:after {
+  content: attr(data-content) !important;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+}
+
+.text-red{
+	color:rgb(239,54,0);
+}
+
+.text-green{
+	color:rgb(101,214,0);
+}

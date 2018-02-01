@@ -43,8 +43,8 @@ class JsonController{
 	//saveFile
 	public function saveFile($path, $tmp, $file){
 
-		move_uploaded_file($tmp, $path . '\\' . $file);
-		$path .= '\\' .  $_FILES['fname']['name'];
+		move_uploaded_file($tmp, $path . '/' . $file);
+		$path .= '/' .  $_FILES['fname']['name'];
 
 		return $path;
 	}

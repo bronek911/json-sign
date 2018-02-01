@@ -1,21 +1,23 @@
 $(function(){
 
-  // console.log('abc');
-
   function colorText(div){
-
     var verifyStatus = $('.card-response').find(div);
     if(verifyStatus.data('status') == 0){
       verifyStatus.addClass('text-red');
     } else {
       verifyStatus.addClass('text-green');
     }
-
-    console.log(verifyStatus);
+    // console.log(verifyStatus);
   }
 
   colorText('.verify');
   colorText('.sign');
+
+    var fileDelete = $('.file-delete');
+
+    fileDelete.click(function(){
+      console.log($(this).data('remove'));
+    })
 
   var copyButton = $('.btn-get-sign');
 
@@ -27,6 +29,7 @@ $(function(){
       document.execCommand("copy");
       $temp.remove();
       // console.log($(this).data('sign'));
+
     });
 
-  });
+});

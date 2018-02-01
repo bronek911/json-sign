@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '\testApp\src\autoload.php';
+require_once __DIR__ . '/testApp/src/autoload.php';
 
-$src = __DIR__ .'\testApp\src';
+$src = __DIR__ .'/testApp/src';
 
 $jsonController = new jsonController();
 $jsonFiles = $jsonController->getAllJsons();
@@ -13,11 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     	$upload = new FileUpload;
     	$response = $upload->uploadAction($_FILES, $jsonController);
 
-    	// echo '<pre>';
-    	// var_dump($response);
-    	// echo '</pre>';
-    	// die;
-
     }else {
 
 	    $response['error'] = [];
@@ -26,17 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		switch ($_FILES['fname']['error']) {
 		    case UPLOAD_ERR_NO_FILE:
 	            $response['error']['message'] = "Select a file to upload.";
-	            // echo "Select a file to upload.";
 	         	break;
 			 
 		    case UPLOAD_ERR_INI_SIZE:
 	            $response['error']['message'] = "The file size exceeds upload_max_filesize in php.ini";
-	         	// echo "The file size exceeds upload_max_filesize in php.ini";
 	         	break;
 		 	
 	 	    default:
 	 	    	$response['error']['message'] = "Upload failed";
-			 	// echo "Upload failed";
 		        break;
 		}
 	}   
@@ -48,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 	<title>Open Tech Guides - File Upload Demo</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 	<link rel="stylesheet" href="<?php 
 			echo 'testApp\src\Resources\css\main.css'; 
 		?>">
@@ -128,6 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					    <h5 class="card-title">'.$jsonFile.'</h5>
 					    <a href="./uploads/'.$jsonFile.'" class="btn btn-primary btn-sm btn-block">Get JSON</a>
 					    <a href="#" class="btn btn-primary btn-sm btn-block btn-get-sign" data-sign="'.$jsonController->getSignatureByDir($jsonFile).'">Copy signature to clipboard</a>
+					    <i class="material-icons file-delete" data-remove="./uploads/'.$jsonFile.'">highlight_off</i>
 					  </div>
 					</div>
 				';
